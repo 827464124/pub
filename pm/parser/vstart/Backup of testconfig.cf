@@ -1,0 +1,481 @@
+##START ALARM##
+'FIML124' =>{
+	'ALARM_ATITLE' => 'JSP加载率',
+	'ALARM_ATEXT' => 'JSP加载率',
+	'ALARM_AEXPR' => 'jspreloadcount*100/jspcount',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(jspreloadcount*100/jspcount)>=100 && (jspreloadcount*100/jspcount)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:JSP加载率>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(jspreloadcount*100/jspcount)>=200 && (jspreloadcount*100/jspcount)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:JSP加载率>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(jspreloadcount*100/jspcount)>=400 && (jspreloadcount*100/jspcount)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:JSP加载率>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(jspreloadcount*100/jspcount)>=600 && (jspreloadcount*100/jspcount)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:JSP加载率>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(jspreloadcount*100/jspcount)>=800 && (jspreloadcount*100/jspcount)<=900"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:JSP加载率>=800"],
+	},
+
+},
+'FIML116' =>{
+	'ALARM_ATITLE' => 'IO速率（读）',
+	'ALARM_ATEXT' => 'IO速率（读）',
+	'ALARM_AEXPR' => 'ioread',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(ioread)>=100 && (ioread)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:IO速率（读）>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(ioread)>=200 && (ioread)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:IO速率（读）>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(ioread)>=400 && (ioread)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:IO速率（读）>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(ioread)>=600 && (ioread)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:IO速率（读）>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(ioread)>=800 && (ioread)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:IO速率（读）>=800"],
+	},
+
+},
+'FIML115' =>{
+	'ALARM_ATITLE' => 'CPU使用率',
+	'ALARM_ATEXT' => 'CPU使用率（虚拟机）',
+	'ALARM_AEXPR' => 'syscp+usercp',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=100 && (syscp+usercp)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:CPU使用率（虚拟机）>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=200 && (syscp+usercp)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:CPU使用率（虚拟机）>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=400 && (syscp+usercp)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:CPU使用率（虚拟机）>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=600 && (syscp+usercp)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:CPU使用率（虚拟机）>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=800 && (syscp+usercp)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:CPU使用率（虚拟机）>=800"],
+	},
+
+},
+'FIML108' =>{
+	'ALARM_ATITLE' => 'CPU使用率',
+	'ALARM_ATEXT' => 'CPU使用率（物理机）',
+	'ALARM_AEXPR' => 'syscp+usercp',
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=400 && (syscp+usercp)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:CPU使用率（物理机）>=400"],
+	},
+'FIML108' =>{
+	'ALARM_ATITLE' => 'CPU使用率',
+	'ALARM_ATEXT' => 'CPU使用率（物理机）',
+	'ALARM_AEXPR' => 'syscp+usercp',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=200 && (syscp+usercp)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:CPU使用率（物理机）>=200"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=200 && (syscp+usercp)<=300"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:CPU使用率（物理机）>=200"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=1000 && (syscp+usercp)<=1200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:CPU使用率（物理机）>=1000"],
+	},
+
+},
+'FIML122' =>{
+	'ALARM_ATITLE' => '带宽利用率',
+	'ALARM_ATEXT' => '带宽利用率',
+	'ALARM_AEXPR' => '(inoct +outoct )*100/bandwidth',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["((inoct +outoct )*100/bandwidth)>=100 && ((inoct +outoct )*100/bandwidth)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:带宽利用率>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["((inoct +outoct )*100/bandwidth)>=200 && ((inoct +outoct )*100/bandwidth)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:带宽利用率>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["((inoct +outoct )*100/bandwidth)>=400 && ((inoct +outoct )*100/bandwidth)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:带宽利用率>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["((inoct +outoct )*100/bandwidth)>=600 && ((inoct +outoct )*100/bandwidth)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:带宽利用率>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["((inoct +outoct )*100/bandwidth)>=800 && ((inoct +outoct )*100/bandwidth)<=900"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:带宽利用率>=800"],
+	},
+
+},
+'FIML120' =>{
+	'ALARM_ATITLE' => '流入流量',
+	'ALARM_ATEXT' => '流入流量',
+	'ALARM_AEXPR' => 'intraffic',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(intraffic)>=100 && (intraffic)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:流入流量>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(intraffic)>=200 && (intraffic)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:流入流量>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(intraffic)>=400 && (intraffic)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:流入流量>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(intraffic)>=600 && (intraffic)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:流入流量>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(intraffic)>=800 && (intraffic)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:流入流量>=800"],
+	},
+
+},
+'FIML109' =>{
+	'ALARM_ATITLE' => '硬盘',
+	'ALARM_ATEXT' => '硬盘空间不足（测试）',
+	'ALARM_AEXPR' => 'collperiod+bandwidth',
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(collperiod+bandwidth)>=100 && (collperiod+bandwidth)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:硬盘空间不足（测试）>=100"],
+	},
+'FIML109' =>{
+	'ALARM_ATITLE' => '硬盘',
+	'ALARM_ATEXT' => '硬盘空间不足（测试）',
+	'ALARM_AEXPR' => 'collperiod+bandwidth',
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(collperiod+bandwidth)>=600 && (collperiod+bandwidth)<=900"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:硬盘空间不足（测试）>=600"],
+	},
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(collperiod+bandwidth)>=800 && (collperiod+bandwidth)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:硬盘空间不足（测试）>=800"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(collperiod+bandwidth)>=200 && (collperiod+bandwidth)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:硬盘空间不足（测试）>=200"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(collperiod+bandwidth)>=1000 && (collperiod+bandwidth)<=2000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:硬盘空间不足（测试）>=1000"],
+	},
+
+},
+'FIML114' =>{
+	'ALARM_ATITLE' => 'CPU使用率',
+	'ALARM_ATEXT' => 'CPU使用率（物理机）',
+	'ALARM_AEXPR' => 'syscp+usercp',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=100 && (syscp+usercp)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:CPU使用率（物理机）>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=200 && (syscp+usercp)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:CPU使用率（物理机）>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=400 && (syscp+usercp)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:CPU使用率（物理机）>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=600 && (syscp+usercp)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:CPU使用率（物理机）>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=800 && (syscp+usercp)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:CPU使用率（物理机）>=800"],
+	},
+
+},
+'FIML117' =>{
+	'ALARM_ATITLE' => 'IO速率（写）',
+	'ALARM_ATEXT' => 'IO速率（写）',
+	'ALARM_AEXPR' => 'iowrite',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(iowrite)>=100 && (iowrite)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:IO速率（写）>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(iowrite)>=200 && (iowrite)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:IO速率（写）>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(iowrite)>=400 && (iowrite)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:IO速率（写）>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(iowrite)>=600 && (iowrite)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:IO速率（写）>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(iowrite)>=800 && (iowrite)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:IO速率（写）>=800"],
+	},
+
+},
+'FIML121' =>{
+	'ALARM_ATITLE' => '流出流量',
+	'ALARM_ATEXT' => '流出流量',
+	'ALARM_AEXPR' => 'outtraffic',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(outtraffic)>=100 && (outtraffic)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:流出流量>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(outtraffic)>=200 && (outtraffic)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:流出流量>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(outtraffic)>=400 && (outtraffic)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:流出流量>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(outtraffic)>=600 && (outtraffic)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:流出流量>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(outtraffic)>=800 && (outtraffic)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:流出流量>=800"],
+	},
+
+},
+'FIML118' =>{
+	'ALARM_ATITLE' => '温度',
+	'ALARM_ATEXT' => '温度',
+	'ALARM_AEXPR' => 'tempnum',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(tempnum)>=100 && (tempnum)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:温度>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(tempnum)>=200 && (tempnum)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:温度>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(tempnum)>=400 && (tempnum)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:温度>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(tempnum)>=600 && (tempnum)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:温度>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(tempnum)>=800 && (tempnum)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:温度>=800"],
+	},
+
+},
+'FIML113' =>{
+	'ALARM_ATITLE' => '系统负荷',
+	'ALARM_ATEXT' => '系统负荷（虚拟机）',
+	'ALARM_AEXPR' => 'load5',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=100 && (load5)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:系统负荷（虚拟机）>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=200 && (load5)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:系统负荷（虚拟机）>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=400 && (load5)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:系统负荷（虚拟机）>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=600 && (load5)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:系统负荷（虚拟机）>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=800 && (load5)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:系统负荷（虚拟机）>=800"],
+	},
+
+},
+'FIML111' =>{
+	'ALARM_ATITLE' => 'CPU使用率',
+	'ALARM_ATEXT' => 'CPU使用率（虚拟机）',
+	'ALARM_AEXPR' => 'syscp+usercp',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(syscp+usercp)>=100 && (syscp+usercp)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:CPU使用率（虚拟机）>=100"],
+	},
+
+},
+'FIML112' =>{
+	'ALARM_ATITLE' => '系统负荷',
+	'ALARM_ATEXT' => '系统负荷（物理机）',
+	'ALARM_AEXPR' => 'load5',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=100 && (load5)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:系统负荷（物理机）>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=200 && (load5)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:系统负荷（物理机）>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=400 && (load5)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:系统负荷（物理机）>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=600 && (load5)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:系统负荷（物理机）>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(load5)>=800 && (load5)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:系统负荷（物理机）>=800"],
+	},
+
+},
+'FIML119' =>{
+	'ALARM_ATITLE' => '电压',
+	'ALARM_ATEXT' => '电压',
+	'ALARM_AEXPR' => 'plotnum',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(plotnum)>=100 && (plotnum)<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:电压>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(plotnum)>=200 && (plotnum)<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:电压>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(plotnum)>=400 && (plotnum)<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:电压>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(plotnum)>=600 && (plotnum)<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:电压>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(plotnum)>=800 && (plotnum)<=1000"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:电压>=800"],
+	},
+
+},
+'FIML123' =>{
+	'ALARM_ATITLE' => '端口可用率',
+	'ALARM_ATEXT' => '端口可用率',
+	'ALARM_AEXPR' => 'portava*100/(portava+portused)',
+	'warning' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(portava*100/(portava+portused))>=100 && (portava*100/(portava+portused))<=200"],
+	'THRESHOLD_EXPRESSION_INFO' => ["警告:端口可用率>=100"],
+	},
+	'normal' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(portava*100/(portava+portused))>=200 && (portava*100/(portava+portused))<=400"],
+	'THRESHOLD_EXPRESSION_INFO' => ["一般:端口可用率>=200"],
+	},
+	'minor' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(portava*100/(portava+portused))>=400 && (portava*100/(portava+portused))<=600"],
+	'THRESHOLD_EXPRESSION_INFO' => ["次要:端口可用率>=400"],
+	},
+	'major' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(portava*100/(portava+portused))>=600 && (portava*100/(portava+portused))<=800"],
+	'THRESHOLD_EXPRESSION_INFO' => ["主要:端口可用率>=600"],
+	},
+	'critical' => {
+	'THERSHOLD_LEVELTIME' => ["ALL"],
+	'THRESHOLD_EXPRESSION' => ["(portava*100/(portava+portused))>=800 && (portava*100/(portava+portused))<=900"],
+	'THRESHOLD_EXPRESSION_INFO' => ["严重:端口可用率>=800"],
+	},
+
+},
+##END ALARM##

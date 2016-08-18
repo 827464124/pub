@@ -1,0 +1,7 @@
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.6|SNMPv2-SMI::hh3cEntityExtCpuUsage
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.10|SNMPv2-SMI::hh3cEntityExtMemSize
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.8|SNMPv2-SMI::hh3cEntityExtMemUsage
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.12|SNMPv2-SMI::hh3cEntityExtTemperature
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.14|SNMPv2-SMI::hh3cEntityExtVoltage
+SNMPv2-SMI::enterprises.25506.2.40.2.1.2.1.1.6|SNMPv2-SMI::hh3cIfStatFlowInBytes
+SNMPv2-SMI::enterprises.25506.2.40.2.1.2.1.1.7|SNMPv2-SMI::hh3cIfStatFlowOutBytes

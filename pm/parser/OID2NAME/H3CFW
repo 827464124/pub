@@ -1,0 +1,6 @@
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.6.3|SNMPv2-SMI::hh3cEntityExtCpuUsage
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.10.3|SNMPv2-SMI::hh3cEntityExtMemSize
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.8.3|SNMPv2-SMI::hh3cEntityExtMemUsage
+SNMPv2-SMI::enterprises.25506.2.6.1.1.1.1.12.3|SNMPv2-SMI::hh3cEntityExtTemperature
+SNMPv2-SMI::enterprises.25506.2.88.1.2.1.0|SNMPv2-SMI::hh3cFWConnNumCurr
+SNMPv2-SMI::enterprises.25506.2.88.1.1.1.0|SNMPv2-SMI::hh3cFWMaxConnNum

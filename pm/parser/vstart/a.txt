@@ -1,0 +1,4 @@
+/usr/bin/perl -I/home/nuoen/ioss/pm/parser/parsersrc  -I/home/nuoen/ioss/pm/parser/vstart   -d /home/nuoen/ioss/pm/parser/parsersrc/parser_main.pm --audit_file=/
+home/nuoen/log/eng_parse.audit \--log_file=/home/nuoen/log/eng_parse.log \--log_level=1 \--input_directory=/home/nuoen/spool/raw \--intermediate_directory=/home/nuoen/s
+pool/intermediate \--output_directory=/home/nuoen/spool/load \--parser_directory=/home/nuoen/ioss/pm/parser \--name="ENG Parser" \--input_storage_dir=/home/nuoen/spool/
+archive \--intermediate_storage_dir= \--output_storage_dir= \--parse_count=0 \--loader_size=0 \--nodebug

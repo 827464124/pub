@@ -1,0 +1,8 @@
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.2.1.1
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.2.1.2.2.1
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.5
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.7
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.11
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.13
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.4.1.2011.5.25.31.1.1.10.1.6
+/usr/bin/snmpbulkwalk -v 2c -c __CommUser__ -r 3 -t 3 -O U -O 0 __IP__ 1.3.6.1.4.1.2011.5.25.31.1.1.10.1.7

@@ -1,0 +1,9 @@
+SNMPv2-SMI::enterprises.14331.5.5.1.4.5|SNMPv2-SMI::cpload
+SNMPv2-SMI::enterprises.14331.5.5.1.4.6|SNMPv2-SMI::mempent
+SNMPv2-SMI::enterprises.14331.5.5.1.4.7|SNMPv2-SMI::memfree
+SNMPv2-SMI::enterprises.14331.5.5.1.4.8|SNMPv2-SMI::memsize
+SNMPv2-SMI::enterprises.14331.5.5.1.4.9|SNMPv2-SMI::currentconnections
+SNMPv2-SMI::enterprises.14331.5.5.1.4.10|SNMPv2-SMI::cps
+SNMPv2-SMI::enterprises.14331.5.5.1.5.1.1|SNMPv2-SMI::ifindex
+SNMPv2-SMI::enterprises.14331.5.5.1.5.1.16|SNMPv2-SMI::ifinoctets
+SNMPv2-SMI::enterprises.14331.5.5.1.5.1.23|SNMPv2-SMI::ifoutoctets

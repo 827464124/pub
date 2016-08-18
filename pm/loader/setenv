@@ -1,0 +1,48 @@
+#!/bin/bash
+#*******************************************
+#NMS系统环境变量
+#
+#*******************************************
+#语言环境
+#LANG=zh; export LANG
+#数据库环境变量
+DBSERVER=172.20.0.2
+PMDB=ioss
+PMAD=unires
+USERNAME=nuoen
+PASSWORD=nuoen
+export DBSERVER PMDB PMAD USERNAME PASSWORD
+#PM系统主目录
+PMSYSDIR=/ioss/pm/loader; export PMSYSDIR
+#应用执行程序
+PMBINDIR=$PMSYSDIR; export PMBINDIR
+#PERL 模块
+PMLIBDIR=/ioss/pm/loader; export PMLIBDIR
+#日志目录
+PMSYSLOGS=/ioss/log; export PMSYSLOGS
+#日志打印等级（0|1|2|3|4）0为不打印日志
+PMLOGLEVEL=0; export PMLOGLEVEL
+#汇总脚本目录
+PMSUMMARY=$PMSYSDIR/summary; export PMSUMMARY
+#数据入库目录
+PMSPOOL=/ioss/spool; export PMSPOOL
+#
+#定义的标准环境变量，供执行的任务使用
+#starttime 和 endtime 的时间间隔
+INTERVAL_HOUR='"1"::interval hour to hour'
+INTERVAL_DAY='"1"::interval day to day'
+INTERVAL_WEEK='"7"::interval day to day'
+INTERVAL_MONTH='"1"::interval month to month'
+export INTERVAL_HOUR INTERVAL_DAY INTERVAL_WEEK INTERVAL_MONTH
+#日期格式
+DATAFORMAT="%Y-%m-%d %H:%M:%S"; export DATAFORMAT
+
+#脚本语言环境
+PERL=/usr/bin/perl
+AWK=nawk
+SHELL=/bin/bash
+PING=/usr/sbin/ping
+#
+export PERL AWK SHELL PING
+#
+

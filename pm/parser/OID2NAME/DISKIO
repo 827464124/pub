@@ -1,0 +1,8 @@
+UCD-SNMP-MIB::ucdExperimental.15.1.1.1|UCD-SNMP-MIB::diskIOIndex
+UCD-SNMP-MIB::ucdExperimental.15.1.1.2|UCD-SNMP-MIB::diskIODevice
+UCD-SNMP-MIB::ucdExperimental.15.1.1.3|UCD-SNMP-MIB::diskIONRead
+UCD-SNMP-MIB::ucdExperimental.15.1.1.4|UCD-SNMP-MIB::diskIONWritten
+UCD-SNMP-MIB::ucdExperimental.15.1.1.5|UCD-SNMP-MIB::diskIOReads
+UCD-SNMP-MIB::ucdExperimental.15.1.1.6|UCD-SNMP-MIB::diskIOWrites
+UCD-SNMP-MIB::ucdExperimental.15.1.1.12|UCD-SNMP-MIB::UNKNOWN1
+UCD-SNMP-MIB::ucdExperimental.15.1.1.13|UCD-SNMP-MIB::UNKNOWN2

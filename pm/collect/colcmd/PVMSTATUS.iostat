@@ -1,0 +1,2 @@
+virsh -c qemu+ssh://root@10.0.209.188/system list --all
+ssh -n root@10.0.209.188 'df -hl --total; iostat -c; free'

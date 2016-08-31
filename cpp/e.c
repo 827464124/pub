@@ -26,8 +26,8 @@ int open_socket(struct sockaddr *addr);
 int main(int argc, char *argv[])
 {
     char email[] = "827464124@qq.com";//定义收件人地址
-    char body[] = "From:<zh_wenxing@163.com>\r\n"
-    "To:<827464124@qq.com>\r\n"
+    char body[] = "From: \"test1\"<@163.com>\r\n"
+    "To: \"test2\"<827464124@qq.com>\r\n"
     "Subject: this is a problsdfsd\r\n\r\n"
     "the content is hahahwer";
     sendemail(email, body);
@@ -97,7 +97,7 @@ void sendemail(char *email, char *body)
     printf("%s\n", rbuf);
 
     // PASSWORD
-    sprintf(buf, "%s","zwx123..");
+    sprintf(buf, "%s","zwx123");
     memset(pass, 0, 128);
     base64(pass, buf, strlen(buf));
     printf("pass = %s\n",pass);

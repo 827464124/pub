@@ -18,4 +18,5 @@ sa.sin_port=htons(25);
 	
 	inet_ntop(AF_INET,hptr->h_addr_list[0],buf,16);
 	printf("%s\n",buf);
+	printf("192=%c\n",192);
 }

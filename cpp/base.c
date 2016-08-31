@@ -18,7 +18,6 @@ void ch_to_base64(char src[])
 				unsigned int tmp1 = (unsigned int) src[pos++];
 				unsigned int tmp2 = (unsigned int) src[pos++];
 				unsigned int tmp3 = (unsigned int) src[pos++];
-				printf("%u   %u   %u\n",tmp1,tmp2,tmp3);
 				parr[0] = tmp1>>2;
 				parr[1] = ((tmp1-(tmp1>>2<<2))<<4) + (tmp2>>4);
 				parr[2] = ((tmp2-(tmp2>>4<<4))<<2) +(tmp3>>6);
@@ -31,7 +30,6 @@ void ch_to_base64(char src[])
 		}
 		if(remainder == 1){
 				unsigned int re1 = (unsigned int)src[pos];
-				printf("%u \n",re1);
 				if((re1&3) == 0) {
 					parr[0] = re1>>2;
 					dest[i++]=Base[parr[0]];
@@ -51,7 +49,6 @@ void ch_to_base64(char src[])
 		if(remainder == 2){
 				unsigned int re1 = (unsigned int)src[pos++];
 				unsigned int re2 = (unsigned int)src[pos];
-				printf ("%u  %u\n",re1,re2);
 				if((re2&15) == 0){
 						parr[0] = re1>>2;
 						parr[1] = ((re1 - (re1>>2<<2))<<4) + (re2>>4);
@@ -63,7 +60,6 @@ void ch_to_base64(char src[])
 						parr[0] = re1>>2;
 						parr[1] = ((re1 - (re1>>2<<2))<<4) + (re2>>4);
 						parr[2] = (re2-(re2>>4<<4))<<2 ;
-						printf("p1=%d   p2=%d  p3=%d\n",parr[0],parr[1],parr[2]);
 						dest[i++] = Base[parr[0]];
 						dest[i++] = Base[parr[1]];
 						dest[i++] = Base[parr[2]];
@@ -81,5 +77,5 @@ int main(int argc,char **argv)
 		return -1;
 	}
 	ch_to_base64(argv[1]);
-	printf("buf = %sa\n",argv[1]);
+	printf("buf = %s\n",argv[1]);
 }

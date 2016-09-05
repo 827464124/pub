@@ -26,7 +26,7 @@ int open_socket(struct sockaddr *addr);
 int main(int argc, char *argv[])
 {
     char email[] = "827464124@qq.com";//定义收件人地址
-    char body[] = "From: \"test1\"<@163.com>\r\n"
+    char body[] = "From: \"test1\"<zh_wenxing@163.com>\r\n"
     "To: \"test2\"<827464124@qq.com>\r\n"
     "Subject: this is a problsdfsd\r\n\r\n"
     "the content is hahahwer";

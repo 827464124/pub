@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>perl CPAN</title>
+    <style type="text/css">
+    	.fieldset{
+		width:400px;
+        color:red;
+	}
+    </style>
+</head>
+<body>
+<fieldset class="fieldset" >
+	<legend>perl CPAN</legend>
+
+<pre color="red">
+把这些细节都涉及到的话，怎么安装软件就很清晰了，如果有多个版本，怎样指定安装哪个版本模块呢?
+通过CPAN官方站点http://www.perl.com/CPAN/，可以链接到各个镜像http://www.perl.com/CPAN/SITES.html。
+看到下面几个镜像，不过只有香港的镜像可以连上，其他镜像都连不上，包括台湾的镜像，可能我我上网的地方有网络限制吧。
+China MainLand
+http://cpan.wenzk.com/
+Hong Kong
+http://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/
+ftp://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/
+http://mirrors.geoexpat.com/cpan/
+
+有875M的常用空闲空间和较好的带宽，就可以申请做Perl官方的镜像了，当然这么多空间只能存放常用的软件包，有更多空间则会更好些。
+做私有镜像，需要和Perl镜像的管理员进行联系。
+
+CPAN还是挺大了，发展了很多年，但是总体代码量却并没有大到离谱的地步。
+CPAN规模：2009-12-15 online since 1995-10-26， 6511 MB 243 mirrors，7835 authors 17080 modules。
+
+http://perldoc.perl.org/index.html包含很多Perl文档。
+
+
+Google Groups上不了了诡异。
+其他服务可以用的啊?
+
+安装过程中出现的一个软件是什么，仍然没搞清楚。NcFTP Client， http://www.ncftp.com/。
+
+
+CPAN命令解释：
+get 下载模块对应的软件包，并解压。在Linux下放软件包的位置是.cpan/sources/authors/id/，解压对应的位置是.cpan/build。Windows下对应的位置类似，只是把.cpan改成cpan，Windows下ActivePerl的默认安装位置是C:Perl。
+
+查看软件包的升级状况，使用正则表达式进行查询：
+cpan[16]> r /Sys::Syscall/
+All modules are up to date for /Sys::Syscall/
+
+get moduleName      用于下载软件包，并解压到build目录
+make moduleName   对模块进行编译
+test moduleName       对模块进行测试
+install moduleName   安装模块。(可以不进行前面几步的操作，直接使用install命令，前面的命令会自动调用)
+i /REG/或Words        查询模块
+cpan[19]> i /Net::Netmask/
+Module id = Net::Netmask
+DESCRIPTION  Understand and manipulate network blocks
+CPAN_USERID  MUIR (David Muir Sharnoff cpan@dave.sharnoff.org>)
+CPAN_VERSION 1.9015
+CPAN_FILE    M/MU/MUIR/modules/Net-Netmask-1.9015.tar.gz
+DSLIP_STATUS RdpOo (released,developer,perl,object-oriented,open-source)
+INST_FILE    (not installed)
+cpan[20]> i Net  // 用关键字怎么找不到了?
+No objects found of any type for argument Net
+
+a moduleName        查询模块的作者信息，为什么有些模块可以查询到信息，而有些模块则查询不到信息呢?
+cpan[28]> a MogileFS::Sys     // 相近的模块，为什么这个模块查询不到用户信息呢?
+No objects of type Author found for argument MOGILEFS::SYS
+cpan[29]> i MogileFS::Util
+Module id = MogileFS::Util
+CPAN_USERID  DORMANDO (Alan Kasindorf CENSORED>)
+CPAN_VERSION undef
+CPAN_FILE    D/DO/DORMANDO/mogilefs-server-2.34.tar.gz
+UPLOAD_DATE  2009-12-06
+INST_FILE    (not installed)
+
+CPAN中查询到的Module和Distribution有什么关系?
+一个软件包可以包含多个模块，有些软件包则只包含一个模块。
+CPAN上查不到软件包的历史版本吗?还是只能看到比较新的版本?
+一个软件包中可以包含多个模块。
+cpan[36]> i /MogileFS/      
+Distribution    DORMANDO/mogilefs-server-2.34.tar.gz
+Module    MogileFS::Class        (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Config       (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Connection::Client (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Connection::Mogstored (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Connection::Worker (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::DevFID       (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Device       (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::DeviceState  (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Domain       (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Exception    (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::FID          (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::HTTPFile     (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Host         (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::IOStatWatcher (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::ProcManager  (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::RebalancePolicy (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::RebalancePolicy::DrainDevices (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::RebalancePolicy::PercentFree (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::RebalancePolicy::Random (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::ReplicationPolicy (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::ReplicationPolicy::MultipleHosts (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::ReplicationPolicy::Union (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::ReplicationRequest (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Server       (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Store        (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Store::MySQL (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Store::Postgres (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Store::SQLite (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Sys          (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Test         (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Util         (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker       (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker::Delete (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker::Fsck (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker::JobMaster (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker::Monitor (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker::Query (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker::Reaper (DORMANDO/mogilefs-server-2.34.tar.gz)
+Module    MogileFS::Worker::Replicate (DORMANDO/mogilefs-server-2.34.tar.gz)
+2.15软件包里面的模块怎么这么少?
+cpan[36]> i /MogileFS/      
+Distribution    DORMANDO/MogileFS-Utils-2.15.tar.gz
+Module    MogileFS::Utils        (DORMANDO/MogileFS-Utils-2.15.tar.gz)
+
+显示模块信息：
+cpan[43]> m /MogileFS::Server/
+Module id = MogileFS::Server
+CPAN_USERID  DORMANDO (Alan Kasindorf CENSORED>)
+CPAN_VERSION 2.34
+CPAN_FILE    D/DO/DORMANDO/mogilefs-server-2.34.tar.gz
+UPLOAD_DATE  2009-12-06
+INST_FILE    (not installed)
+cpan[44]> i /MogileFS::Server/  // i也是用于显示信息，不过是 a ,b , d, m信息都要显示的。
+Module id = MogileFS::Server
+CPAN_USERID  DORMANDO (Alan Kasindorf CENSORED>)
+CPAN_VERSION 2.34
+CPAN_FILE    D/DO/DORMANDO/mogilefs-server-2.34.tar.gz
+UPLOAD_DATE  2009-12-06
+INST_FILE    (not installed)
+重新加载cpan，该命令将重新加载CPAN.pm。
+cpan[49]> reload cpan
+(CPAN__unchanged__v1.9402)(CPAN::Author__unchanged__v5.5)(CPAN::CacheMgr__unchanged__v5.5)(CPAN::Complete__unchanged__v5.5)(CPAN::Debug__unchanged__v5.5)(CPAN::DeferredCode__unchanged__v5.50)(CPAN::Distribution__unchanged__v1.93)(CPAN::Distroprefs__unchanged__v6)(CPAN::Distrostatus__unchanged__v5.5)(CPAN::Exception::RecursiveDependency..v5.5)(CPAN::Exception::yaml_not_installed....v5.5)(CPAN::FirstTime....................v5.53)(CPAN::FTP__unchanged__v5.5)(CPAN::FTP::netrc__unchanged__v1.00)(CPAN::HandleConfig__unchanged__v5.5)(CPAN::Index__unchanged__v1.93)(CPAN::InfoObj__unchanged__v5.5)(CPAN::LWP::UserAgent......v1.00)(CPAN::Module__unchanged__v5.5)(CPAN::Prompt__unchanged__v5.5)(CPAN::Queue__unchanged__v5.5)(CPAN::Shell__unchanged__v5.5)(CPAN::Tarzip__unchanged__v5.501)(CPAN::Version__unchanged__v5.5)
+32 subroutines redefined
+reademe 查看软件包信息：
+cpan>readme XML::LibXM
+显示软件包信息，可以按退出
+INTRODUCTION
+============
+
+This module implements a Perl interface to the Gnome libxml2 library which
+provides interfaces for parsing and manipulating XML files. This module allows
+Perl programmers to make use of the highly capable validating XML parser and
+the high performance DOM implementation.
+cpan运行模式切换：
+cpan[87]> look XML::LibXML
+Running look for module 'XML::LibXML'
+
+Trying to open a subshell in the build directory...  // 进入了普通的命令模式，可以使用ls等一系列命令。
+Working directory is /root/.cpan/build/XML-LibXML-1.70-8gQ9A_  // 下面这些是XML::LibXML对应的目录，打开subshell是什么意思?只包含下面的库?
+Prepending /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/arch /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/lib /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/arch /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/lib to PERL5LIB for 'look'
+[root@localhost XML-LibXML-1.70-8gQ9A_]# 
+按Ctrl + D可以返回cpan
+
+没有匹配标识符，是不会进入Shell命令模式的：
+cpan[106]> look MogileFS
+Warning: Cannot look MogileFS, don't know what it is.
+Try the command
+
+i /MogileFS/
+
+to find objects with matching identifiers.
+
+重新加载索引：
+cpan[71]> reload index
+Fetching with LWP:
+http://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/authors/01mailrc.txt.gz
+Use of uninitialized value in hash element at /usr/lib/perl5/vendor_perl/5.8.8/LWP/Protocol.pm line 55.
+Use of uninitialized value in pattern match (m//) at /usr/lib/perl5/vendor_perl/5.8.8/LWP/Protocol.pm line 58.
+Use of uninitialized value in concatenation (.) or string at /usr/lib/perl5/vendor_perl/5.8.8/LWP/Protocol.pm line 38.
+Use of uninitialized value in string eq at /usr/lib/perl5/vendor_perl/5.8.8/LWP/UserAgent.pm line 195.
+LWP failed with code[501] message[Protocol scheme '' is not supported]
+
+Trying with "/usr/bin/wget -O /root/.cpan/sources/authors/01mailrc.txt.tmp3849" to get
+"http://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/authors/01mailrc.txt.gz"  // 处在authors这一级目录，并没有到下面具体的软件实体包中。把索引放在这个位置是合适的。  最后这里其实没有.gz的，估计编译后就被删除了。。。(实际上是放到build目录了。)
+--20:53:03--  http://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/authors/01mailrc.txt.gz
+Connecting to 10.10.10.11:809... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 163345 (160K) [application/x-gzip]
+Saving to: `/root/.cpan/sources/authors/01mailrc.txt.tmp3849'  // 只是临时文件
+
+100%[====================================================================================================================>] 163,345     95.8K/s   in 1.7s   
+
+20:53:06 (95.8 KB/s) - `/root/.cpan/sources/authors/01mailrc.txt.tmp3849' saved [163345/163345]
+
+Going to read '/root/.cpan/sources/authors/01mailrc.txt.gz'
+............................................................................DONE
+Fetching with LWP:
+http://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/modules/02packages.details.txt.gz
+Use of uninitialized value in hash element at /usr/lib/perl5/vendor_perl/5.8.8/LWP/Protocol.pm line 55.
+Use of uninitialized value in pattern match (m//) at /usr/lib/perl5/vendor_perl/5.8.8/LWP/Protocol.pm line 58.
+Use of uninitialized value in concatenation (.) or string at /usr/lib/perl5/vendor_perl/5.8.8/LWP/Protocol.pm line 38.
+Use of uninitialized value in string eq at /usr/lib/perl5/vendor_perl/5.8.8/LWP/UserAgent.pm line 195.
+LWP failed with code[501] message[Protocol scheme '' is not supported]
+
+Trying with "/usr/bin/wget -O /root/.cpan/sources/modules/02packages.details.txt.tmp3849" to get 
+"http://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/modules/02packages.details.txt.gz"
+--20:53:07--  http://ftp.cuhk.edu.hk/pub/packages/perl/CPAN/modules/02packages.details.txt.gz
+Connecting to 10.10.10.11:809... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 844653 (825K) [application/x-gzip]
+Saving to: `/root/.cpan/sources/modules/02packages.details.txt.tmp3849'
+
+70% [================================================================================>                                    ] 591,284     93.9K/s  eta 3s     
+。。。。。
+
+Going to read '/root/.cpan/sources/modules/03modlist.data.gz'
+............................................................................DONE
+Going to write /root/.cpan/Metadata  // 这个估计要删除临时文件，并把索引放到恰当的地方吧?
+
+[root@localhost .cpan]# find . | grep 02pa
+./sources/modules/02packages.details.txt.gz
+./sources/modules/02packages.details.txt.gz.bak
+./build/CPAN-1.9402/t/CPAN/modules/02packages.details.txt
+[root@localhost .cpan]# find . | grep 03mod
+./sources/modules/03modlist.data.gz.bak
+./sources/modules/03modlist.data.gz
+./build/CPAN-1.9402/t/CPAN/modules/03modlist.dat
+[root@localhost .cpan]# find . | grep 01mail
+./sources/authors/01mailrc.txt.gz.bak
+./sources/authors/01mailrc.txt.gz
+./build/CPAN-1.9402/t/CPAN/authors/01mailrc.txt
+[root@localhost .cpan]# du -sh sources/authors/01mailrc.txt.gz // 看来索引不是解压成一个文件01mailrc.txt，那索引到底放哪里呢?
+164K    sources/authors/01mailrc.txt.gz
+[root@localhost .cpan]# du -sh build/CPAN-1.9402/t/CPAN/authors/01mailrc.txt 
+4.0K    build/CPAN-1.9402/t/CPAN/authors/01mailrc.txt
+
+……………………………………………分割线…………………………………………………………
+
+autobundle命令，显示最近的CPAN上传信息
+cpan[54]> autobundle 
+Package namespace         installed    latest  in CPAN file
+Apache::Reload                 0.10      0.10  PHRED/Apache-Reload-0.10.tar.gz
+Apache::Test                   1.31      1.30  PHRED/Apache-Test-1.30.tar.gz
+Archive::Tar                   1.54      1.54  BINGOS/Archive-Tar-1.54.tar.gz
+Archive::Zip                   1.30      1.30  ADAMK/Archive-Zip-1.30.tar.gz
+Attribute::Handlers         0.78_02      0.87  SMUELLER/Attribute-Handlers-0.87.tar.gz
+。。。。。
+AutoLoader                     5.60      5.70  SMUELLER/AutoLoader-5.70.tar.gz
+vars                           1.01      1.01  DAPM/perl-5.10.1.tar.gz
+vmsish                         1.02      1.02  DAPM/perl-5.10.1.tar.gz
+warnings                       1.05      1.06  DAPM/perl-5.10.1.tar.gz
+warnings::register             1.01      1.01  DAPM/perl-5.10.1.tar.gz
+Wrote bundle file
+/root/.cpan/Bundle/Snapshot_2009_12_17_00.pm
+
+CPAN命令也是支持补全操作的，从下面的结果可以看出这一点：
+cpan[63]> test Perlb
+Perlbal                                Perlbug::File                          Perlbug::Object::Change                Perlbug::Object::Range
+Perlbal::Cache                         Perlbug::Fix                           Perlbug::Object::Child                 Perlbug::Object::Severity
+Perlbal::Control                       Perlbug::Format                        Perlbug::Object::Fixed                 Perlbug::Object::Status
+Perlbal::Plugin::Addheader             Perlbug::Interface::Cmd                Perlbug::Object::Flag                  Perlbug::Object::Template
+Perlbal::Plugin::BackendHeaders        Perlbug::Interface::Email              Perlbug::Object::Group                 Perlbug::Object::Test
+Perlbal::Plugin::StickySessions        Perlbug::Interface::Tk                 Perlbug::Object::Log                   Perlbug::Object::Thing
+Perlbal::Plugin::TrustHeader           Perlbug::Interface::Web                Perlbug::Object::Message               Perlbug::Object::User
+Perlbal::XS::HTTPHeaders               Perlbug::JS                            Perlbug::Object::Note                  Perlbug::Object::Version
+Perlbug                                Perlbug::Log                           Perlbug::Object::Object                Perlbug::Relation
+Perlbug::Base                          Perlbug::Object                        Perlbug::Object::Osname                Perlbug::Test
+Perlbug::Config                        Perlbug::Object::Address               Perlbug::Object::Parent                Perlbug::Utility
+Perlbug::Database                      Perlbug::Object::Bug                   Perlbug::Object::Patch
+Perlbug::Do                            Perlbug::Object::Category              Perlbug::Object::Project
+rencent命令，显示最近上传的软件包：
+cpan[69]> recent
+no XML::LibXML installed, cannot continue
+21:30:13 (16.6 KB/s) - `/root/.cpan/sources/authors/id/P/PA/PAJAS/CHECKSUMS.tmp3849' saved [22988/22988]
+Checksum for /root/.cpan/sources/authors/id/P/PA/PAJAS/XML-LibXML-1.70.tar.gz ok
+// 先下载为临时文件，确认下载成功之后，才改成正式名称，这也是实现事务的一种做法吧。
+又下载了不少的依赖：
+cpan[75]> make XML::LibXML  // 为何第一次运行没反应
+Running make for module 'XML::LibXML'
+Running make for P/PA/PAJAS/XML-LibXML-1.70.tar.gz
+cpan[76]> make XML::LibXML  // 有反应了
+Running make for module 'XML::LibXML'
+Running make for P/PA/PAJAS/XML-LibXML-1.70.tar.gz
+
+CPAN.pm: Going to build P/PA/PAJAS/XML-LibXML-1.70.tar.gz
+
+enable native perl UTF8
+running xml2-config...ok (2.6.26)
+looking for -lxml2... yes
+Checking if your kit is complete...
+Looks good
+Warning: prerequisite XML::NamespaceSupport 1.07 not found.
+Warning: prerequisite XML::SAX 0.11 not found.
+Writing Makefile for XML::LibXML
+---- Unsatisfied dependencies detected during ----
+----       PAJAS/XML-LibXML-1.70.tar.gz       ----
+XML::SAX [requires]
+XML::NamespaceSupport [requires]
+Shall I follow them and prepend them to the queue
+编译过程中用到了gcc，一些模块用C实现，然后用Perl来调用?这和Python看起来有些相似了，呵呵
+
+显示Danga::Socket已经安装：
+cpan[96]> make Danga::Socket
+Running make for module 'Danga::Socket'
+Running make for B/BR/BRADFITZ/Danga-Socket-1.61.tar.gz
+Prepending /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/arch /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/lib /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/arch /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/lib to PERL5LIB for 'get'
+Has already been unwrapped into directory /root/.cpan/build/Danga-Socket-1.61-r1BDMs
+Prepending /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/arch /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/lib /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/arch /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/lib to PERL5LIB for 'make'
+Has already been made
+显示XML::LibXML已经安装：
+cpan[97]> install XML::LibXML
+XML::LibXML is up to date (1.70).
+
+居然这可以这么编译：
+先下载代码，在切换到命令模式，只用用Linux的make命令进行编译(虽然在CPAN里其实也是调用make进行编译的)，这说明cpan还是很灵活的。
+
+cpan[99]> look MogileFS::Server
+Running look for module 'MogileFS::Server'  // 对某个模块进行管理方便，如修改代码后，马上编译，但又是在CPAN的框架之内，便于软件安装管理?
+
+Trying to open a subshell in the build directory...
+Working directory is /root/.cpan/build/mogilefs-server-2.34-CwDbTB
+Prepending /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/arch /root/.cpan/build/XML-SAX-0.96-XRyCrX/blib/lib /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/arch /root/.cpan/build/XML-NamespaceSupport-1.10-KAp2Ok/blib/lib to PERL5LIB for 'look'
+[root@localhost mogilefs-server-2.34-CwDbTB]# ls
+CHANGES  doc  lib  Makefile  Makefile.PL  MANIFEST  META.yml  mogautomount  mogdbsetup  mogilefsd  mogstored  t  TESTING  TODO
+[root@localhost mogilefs-server-2.34-CwDbTB]# make
+cp lib/MogileFS/RebalancePolicy.pm blib/lib/MogileFS/RebalancePolicy.pm
+cp lib/mogdeps/Perlbal/ManageCommand.pm blib/lib/mogdeps/Perlbal/ManageCommand.pm
+cp lib/Mogstored/ChildProcess/DiskUsage.pm blib/lib/Mogstored/ChildProcess/DiskUsage.pm
+cp lib/mogdeps/Perlbal/ReproxyManager.pm blib/lib/mogdeps/Perlbal/ReproxyManager.pm
+cp lib/mogdeps/Perlbal/Plugin/Vpaths.pm blib/lib/mogdeps/Perlbal/Plugin/Vpaths.pm
+cp lib/MogileFS/Server.pm blib/lib/MogileFS/Server.pm
+cp lib/MogileFS/Sys.pm blib/lib/MogileFS/Sys.pm
+cp lib/mogdeps/Perlbal/Plugin/Redirect.pm blib/lib/mogdeps/Perlbal/Plugin/Redirect.pm
+</pre>
+</fieldset>
+</body>
+</html>

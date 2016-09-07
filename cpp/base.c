@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-char Base[65]={};
 
 void ch_to_base64(char src[])
 {
-	
+		
+		char Base[65]={};
+		strcpy(Base,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
 		char dest[64]={};
 		int s_len=strlen(src);
 		int remainder = s_len%3;
@@ -69,13 +70,3 @@ void ch_to_base64(char src[])
 		strcpy(src,dest);
 }
 
-int main(int argc,char **argv)
-{
-	strcpy(Base,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
-	if(argc !=2) {
-		printf("error: param num is wrong!\n");
-		return -1;
-	}
-	ch_to_base64(argv[1]);
-	printf("buf = %s\n",argv[1]);
-}

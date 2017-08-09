@@ -12,8 +12,12 @@ my $socket=IO::Socket::INET->new(PeerAddr => $remote_host,
 								Type => SOCK_STREAM) or die "create client failed! $! \n";
 print $socket "hello , I'm coming\n"  or die "send msg failed! $!\n";
 
-print $socket "success\n";
+#print $socket "success\n";
 
+while (my $msg=<STDIN>){
+	print $socket "$msg";
+	last if($msg=~ /^close$/);
+}
 my $answer = <$socket>;
 print $answer;
 close $socket;

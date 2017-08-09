@@ -21,36 +21,37 @@ eval {
 	}
 };
 
-$ssh->send("cat  /home/xing/all_bak/y.txt");
-$ssh->waitfor ("\$\>\%\#");
-print "peek : ------------------------------------\n";
-print $ssh->peek(0) ."\n";
-print "peek over  --------------------------------\n";
-print "read_line : -------------------------------\n";
-while($line = $ssh->read_line()){
-	print $line."\n";
-}
-print "read_line  over --------------------------\n";
+$ssh->send("cat  /home/xing/all_bak/y.txt\n");
+$ssh->waitfor ('[\$%#>]\s*(\\033\[0m)?$')  ?  print "waitfor  Ok\n"  : die "waitfor  failed";
+print "peek : ".$ssh->peek(0) ."\n";
+$line = $ssh->before();
+print "before :  $line \n";
 
-$ssh->send("cat  /home/xing/all_bak/y.txt");
-$ssh->waitfor ("\$\>\%\#");
 
-print "read_all : -------------------------------\n";
+$ssh->send("cat  /home/xing/all_bak/y.txt\n");
+#$ssh->waitfor ('[\$%#>]\s*(\\033\[0m)?$')  ?  print "waitfor  Ok\n"  : die "waitfor  failed";
+
+print "read_all : \n";
 print $ssh->read_all() ."\n";
-print "read_all over ---------------------------\n";
+print "read_all over \n";
 
-$ssh->send("cat  /home/xing/all_bak/y.txt");
-$ssh->waitfor ("\$\>\%\#");
+$ssh->send("cat  /home/xing/all_bak/y.txt\n");
+#$ssh->waitfor ('[\$%#>]\s*(\\033\[0m)?$')  ?  print "waitfor  Ok\n"  : die "waitfor  failed";
 
 print "eat test: --------------------------------\n";
 $ssh->eat($ssh->peek(0));
 print $ssh->peek(0) ."\n";
-print $ssh->read_all() ."\n";
+
+
+my $ret = $ssh->read_all();
+print $ret."\n";
+$ret=~s/\r\n/\n/g;
+my @arr=split /\n/,$ret;
 print "eat test over ----------------------------\n";
 
 
-$ssh->send("cat  /home/xing/all_bak/y.txt");
-$ssh->waitfor ("\$\>\%\#");
+$ssh->send("cat  /home/xing/all_bak/y.txt\n");
+#$ssh->waitfor ('[\$%#>]\s*(\\033\[0m)?$')  ?  print "waitfor  Ok\n"  : die "waitfor  failed";
 print "after ; ---------------------------------\n";
 $ssh->read_line();
 $ssh->read_line();

@@ -1,0 +1,6 @@
+1.  yum install *gobject*
+2. yum install *pango*
+   yum install *gtk+-2.0*
+3. CPAN  :  install Glib
+4. CPAN : isntall Pango
+5. CPAN : install Cairo

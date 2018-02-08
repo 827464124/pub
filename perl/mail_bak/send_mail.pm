@@ -8,7 +8,7 @@ sub new
 	my $this = shift;
 	my $class = ref ($this) || $this;
 	my $self = {};
-	($self->{'server'} ,$self->{'mail_cfg'} )  = @_;
+	($self->{'server'} )  = @_;
 	die " config file is not exist"if ((! -f $self->{'server'} )&& (! -f $self->{'mail_cfg'} ));
 	bless $self , $class;
 	$self;
@@ -75,7 +75,7 @@ MAILHEADER
 sub read_mail_cfg()
 {
 	my $mail_file = shift;
-	open my $m_fd,"<","$mail_file";
+	open my $m_fd,"<","$mail_file" || return "open mail_file failed";
 	my $attr = "";
 	my %mail_cfg_hash = ();
 	while (my $line = <$m_fd>){

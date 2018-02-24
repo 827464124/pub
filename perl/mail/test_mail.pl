@@ -1,35 +1,25 @@
 #!/usr/bin/perl
-use Net::SMTP;
+use Data::Dumper;
+use send_mail;
 
-# mail_user should be your_mail@163.com
-sub send_mail{
-    my $to_address  = shift;
-    my $mail_user   = 'zh_wenxing@163.com';
-    my $mail_pwd    = 'zwx123';
-    my $mail_server = 'smtp.163.com';
 
-    my $from    = "From: $mail_user\n";
-    my $subject = "Subject: here comes the subject\n";
+my $sm = new send_mail;
+my $server_file = "/home/xing/mail.cfg";
+my $pool_dir = "./pool/";
+my $bak_pool = "./bak_pool";
+my $failed_pool = "./failed_pool";
 
-    my $message = <<CONTENT; 
-    **********************
-    here comes the content
-    **********************
-CONTENT
 
-    my $smtp = Net::SMTP->new($mail_server);
+$sm->_config_server($server_file);
 
-    $smtp->auth($mail_user, $mail_pwd) || die "Auth Error! $!";
-    $smtp->mail($mail_user);
-    $smtp->to($to_address);
 
-    $smtp->data();             # begin the data
-    $smtp->datasend($from);    # set user
-    $smtp->datasend($subject); # set subject
-    $smtp->datasend($message); # set content
-    $smtp->dataend() || die "dataend ".$smtp->message()."\n";
-
-    $smtp->quit();
+my @cfg_file = split /\n/, `find  $pool_dir -type f`;
+for (my $idx = 0 ; $idx < @cfg_file ;$idx ++){
+	$sm->_config_($cfg_file[$idx]);
+	 if ($sm->send_mail()) {
+		`mv $cfg_file[$idx] $bak_pool`;
+	 }else{
+		 `mv $cfg_file[$idx] $failed_pool`;
+	 }
 }
 
-&send_mail('827464124@qq.com');

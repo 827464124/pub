@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml rows="5" code="cqssc" info="免费接口随机延迟3-6分钟，实时接口请访问opencai.net或QQ:23081452(注明彩票或API)">
+  <row expect="20170325035" opencode="1,1,9,4,8" opentime="2017-03-25 11:50:40"/>
+  <row expect="20170325034" opencode="5,5,3,1,1" opentime="2017-03-25 11:40:40"/>
+  <row expect="20170325033" opencode="6,7,6,2,5" opentime="2017-03-25 11:30:40"/>
+  <row expect="20170325032" opencode="2,5,8,9,0" opentime="2017-03-25 11:20:40"/>
+  <row expect="20170325031" opencode="4,2,5,3,4" opentime="2017-03-25 11:10:40"/>
+</xml>

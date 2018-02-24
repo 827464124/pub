@@ -1,0 +1,11 @@
+--2017-03-25 05:21:16--  http://f.apiplus.cn/cqssc.xml
+Resolving f.apiplus.cn... 121.41.80.191
+Connecting to f.apiplus.cn|121.41.80.191|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 594 [text/xml]
+Saving to: “cqssc.xml.1”
+
+     0K                                                       100% 42.7M=0s
+
+2017-03-25 05:21:17 (42.7 MB/s) - “cqssc.xml.1” saved [594/594]
+

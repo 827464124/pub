@@ -16,24 +16,22 @@ void bubble(int* src,int len)
 }
 
 void quick(int *src,int pos ,int len){
+
+
+		if (pos >= len ) return ;
 		int mid = (len-pos)/2;
 		int j = len;
 		int i = pos;
-		int m = src[mid];
-		if(mid > i && mid < len ){
-		while(j > i){
-		while(j>i && src[i] < src[mid] ) i++;
-		while(j>i && src[j] > src[mid] ) j--;
-		if(i < j ){
-				int tmp = src[i];
-				src[i] = src[j];
-				src[j] = tmp;
-				i++; j--;
-			}
+		int m = src[pos];
+		while(i<j){
+		while(i<j && m <= src[j] ) j--;
+		src[i] = src[j]; 
+		while(j>i && src[i] <= m ) i++;
+		src[j] = src[i];
 		}
-		quick(src,pos,mid);
-		quick(src,mid+1,len);
-	}
+		src[i] = m;
+		quick(src,pos,i - 1);
+		quick(src,i+1,len);
 }
 
 void print_a(int *src, int len){
@@ -51,8 +49,8 @@ int main()
 		for(i=0;i<10;i++){
 				arr[i] = rand()%100;
 				}
-		bubble(arr,sizeof(arr)/4);
+//	bubble(arr,sizeof(arr)/4);
 		print_a(arr,sizeof(arr)/4);
-		quick(arr,0,sizeof(arr)/4 - 1);
+		quick(arr,0,sizeof(arr)/4 - 1 );
 		print_a(arr,sizeof(arr)/4);
 }
